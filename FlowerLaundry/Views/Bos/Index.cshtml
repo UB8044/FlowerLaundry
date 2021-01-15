@@ -1,0 +1,51 @@
+﻿@model IEnumerable<FlowerLaundry.Models.Bos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2 style="text-align:center; font-family:'Lucida Calligraphy'; font-size:xx-large">Data Bos</h2>
+
+<hr />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Nama Bos")
+            </th>
+            <th>
+                @Html.DisplayName("No HP")
+            </th>
+            <th>
+                @Html.DisplayName("Email")
+            </th>
+            <th>
+                @Html.DisplayName("Password")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NamaBos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoHp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdBos">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdBos">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdBos">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

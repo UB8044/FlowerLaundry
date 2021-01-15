@@ -1,0 +1,65 @@
+﻿@model IEnumerable<FlowerLaundry.Models.Pesanan>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2 style="text-align:center; font-family:'Lucida Calligraphy'; font-size:xx-large">Data Pesanan</h2>
+
+<p>
+    <a asp-action="Create">Tambah Data</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Berat")
+            </th>
+            <th>
+                @Html.DisplayName("Pelayanan")
+            </th>
+            <th>
+                @Html.DisplayName("Harga Total")
+            </th>
+            <th>
+                @Html.DisplayName("Tanggal Order")
+            </th>
+            <th>
+                @Html.DisplayName("Nama Customer")
+            </th>
+            <th>
+                @Html.DisplayName("Nama Karyawan")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Berat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pelayanan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HrgTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TglOrder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCustomerNavigation.IdCustomer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdKaryawanNavigation.Email)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.NoPesanan">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.NoPesanan">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.NoPesanan">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

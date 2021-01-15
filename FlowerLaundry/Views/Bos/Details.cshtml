@@ -1,0 +1,40 @@
+﻿@model FlowerLaundry.Models.Bos
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Detail Data Bos</h2>
+<hr />
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Nama Bos")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NamaBos)
+        </dd>
+        <dt>
+            @Html.DisplayName("No HP")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NoHp)
+        </dd>
+        <dt>
+            @Html.DisplayName("Email")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayName("Password")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdBos">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
